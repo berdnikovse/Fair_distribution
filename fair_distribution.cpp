@@ -2,12 +2,7 @@
 
 vector <string> invert_map(const map<string, int> &table)
 {
-	int size = 1;
-	for (auto it = table.begin(); it != table.end(); it++)
-	{
-		size = max(size, it->second + 1);
-	}
-	vector <string> answer(size, "");
+	vector <string> answer(table.size());
 	for (auto it = table.begin(); it != table.end(); it++)
 	{
 		answer[it->second] = it->first;
