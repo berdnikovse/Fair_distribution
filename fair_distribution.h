@@ -4,17 +4,18 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <cmath>
 
 #define INF 1e12
 #define EPS 1e-6
+
+using namespace std;
 
 enum
 {
 	NOT_SOLVED = (size_t)(-1),
 	NOBODY = -1
 };
-
-using namespace std;
 
 map <string, string> get_distribution(const map <string, int>&, const map <string, vector <string>>&, unsigned);
 
