@@ -108,7 +108,7 @@ double count_disp(const vector <int>& score)
 		double delta = avg - *it;
 		disp += delta * delta;
 	}
-	return sqrt(disp);
+	return sqrt(disp / size);
 }
 
 map <string, string> get_distribution(const map <string, int> &curr_score, const map <string, vector <string>> &solved, unsigned prob_limit)
@@ -140,6 +140,7 @@ map <string, string> get_distribution(const map <string, int> &curr_score, const
 		double new_disp = count_disp(test_score);
 		if (new_solved > max_solved || new_disp + EPS < best_disp)
 		{
+			max_solved = new_solved;
 			best_disp = new_disp;
 			best_mask = mask;
 		}
@@ -163,7 +164,7 @@ int tot_solved(const vector<int> &students)
 	int answer = students.size();
 	for (unsigned pos = 0; pos < students.size(); pos++)
 	{
-		answer -= (students[pos] == NOBODY);
+		if (students[pos] == NOBODY) answer--;
 	}
 	return answer;
 }
