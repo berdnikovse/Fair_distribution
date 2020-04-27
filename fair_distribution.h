@@ -9,6 +9,8 @@
 #define INF 1e12
 #define EPS 1e-6
 
+typedef unsigned long long ext_t;
+
 using namespace std;
 
 enum
@@ -34,6 +36,7 @@ bool limit_exceeded(const vector <int>&, unsigned);
 int tot_solved(const vector <int>&);
 
 bool advance_mask(vector <size_t>&, const vector <vector <int> >&);
+void get_n_mask(vector <size_t>&, const vector <vector <int> >&, ext_t);
 vector <int> operator + (const vector <int>&, const vector <int>& b);
 double count_disp(const vector <int>&);
 

@@ -178,3 +178,13 @@ bool advance_mask(vector <size_t>& mask, const vector <vector <int>>& masked_obj
 	}
 	return false;
 }
+
+void get_n_mask(vector <size_t>& mask, const vector <vector <int> >& masked_object, ext_t number)
+{
+	for (size_t pos = 0; pos < masked_object.size(); pos++)
+	{
+		mask[pos] = number % ((ext_t)masked_object[pos].size() + 1);
+		mask[pos] = mask[pos] > 0 ? mask[pos] - 1 : NOT_SOLVED;
+		number /= ((ext_t)masked_object[pos].size() + 1);
+	}
+}
